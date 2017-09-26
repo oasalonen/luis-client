@@ -21,7 +21,7 @@ namespace WpfApp1
         private static readonly string LuisAppIdEn = "";
         private static readonly string LuisAppIdDe = "";
         private static readonly string LuisAppKey = "";
-        private static readonly string SpeechRecognitionAppKey = "";
+        private static readonly string BingSpeechAppKey = "";
         private static readonly string IotConnectionString = "";
 
         public class IntentPayload
@@ -169,7 +169,7 @@ namespace WpfApp1
         {
             _micSubscriptions.Clear();
 
-            _micClient = SpeechRecognitionServiceFactory.CreateMicrophoneClientWithIntent(locale, SpeechRecognitionAppKey, luisApp, LuisAppKey);
+            _micClient = SpeechRecognitionServiceFactory.CreateMicrophoneClientWithIntent(locale, BingSpeechAppKey, luisApp, LuisAppKey);
 
             var sub1 = Observable.FromEventPattern(record, "Checked")
                 .Subscribe(_ =>
