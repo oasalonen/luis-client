@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace WpfApp1
+namespace LuisClient
 {
     public partial class MainWindow : Window
     {
@@ -62,13 +62,13 @@ namespace WpfApp1
                 {
                     luisApp = LuisAppIdDe;
                 }
-                _luisClient = new LuisClient(luisApp, LuisAppKey, true, "westus");
+                _luisClient = new Microsoft.Cognitive.LUIS.LuisClient(luisApp, LuisAppKey, true, "westus");
                 initMicClient(_locale, luisApp);
             }
         }
         private string _locale = "en-US";
 
-        private LuisClient _luisClient;
+        private Microsoft.Cognitive.LUIS.LuisClient _luisClient;
 
         private MicrophoneRecognitionClientWithIntent _micClient;
         private CompositeDisposable _micSubscriptions = new CompositeDisposable();
