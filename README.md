@@ -1,5 +1,5 @@
 # luis-client
-A test client for [Azure LUIS](https://www.luis.ai/). Deciphers intent from text and speech, and uses the information to control a raspberry pi LED through Azure IoT Hub.
+A test client for [Azure LUIS](https://www.luis.ai/). Deciphers intent from text and speech, and uses the information to control a Raspberry PI LED through Azure IoT Hub.
 
 ## Setup
 * Azure LUIS app for English (optionally also for German)
