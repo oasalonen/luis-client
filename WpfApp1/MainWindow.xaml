@@ -1,0 +1,112 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="responseText"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   FontSize="20"
+                   Text="[response field]"/>
+
+        <Grid Grid.Column="1"
+              Grid.Row="0"
+              Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <RadioButton GroupName="Lang"
+                         x:Name="english"
+                         FontSize="20"
+                         Grid.Row="0"       
+                         Content="English"
+                         Click="english_Click"/>
+            <RadioButton GroupName="Lang"
+                         x:Name="german"
+                         FontSize="20"
+                         Grid.Row="1"       
+                         Content="German"
+                         Click="german_Click"/>
+        </Grid>
+
+        
+
+        <TextBox x:Name="command"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 FontSize="20"/>
+        <Button x:Name="submit"
+                Content="Submit"
+                FontSize="20"
+                Grid.Row="1"
+                Grid.Column="1"/>
+        
+        <ToggleButton x:Name="record"
+                      Content="Rec"
+                      Grid.Row="1"
+                      Grid.Column="2">
+            <ToggleButton.Style>
+                <Style TargetType="{x:Type ToggleButton}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border x:Name="outer"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    Opacity=".9"
+                                    Background="Transparent">       
+                                    <Border x:Name="inner"
+                                            Margin="0"
+                                            BorderThickness="0"
+                                            Background="{
+                                                Binding Background, 
+                                                RelativeSource={RelativeSource TemplatedParent}}">
+                                                                            <Grid x:Name="container">
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="2*"/>
+                                                                                    <RowDefinition/>
+                                                                                </Grid.RowDefinitions>
+                                                                                <TextBlock x:Name="display"
+                                                                                          Grid.Row="1"
+                                                                                          Text="{Binding Content, RelativeSource={
+                                                                                                RelativeSource TemplatedParent}}"
+                                                                                          Foreground="Black"
+                                                                                          FontSize="20"
+                                                                                          FontFamily="Segoe UI"
+                                                                                          FontStyle="Normal"
+                                                                                          FontWeight="Normal"
+                                                                                          Margin="4"
+                                                                                          HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                        <Setter TargetName="inner" Property="Background" Value="Red"/>
+                                        <Setter TargetName="outer" Property="BorderBrush" Value="Transparent"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ToggleButton.Style>
+        </ToggleButton>
+    </Grid>
+</Window>
